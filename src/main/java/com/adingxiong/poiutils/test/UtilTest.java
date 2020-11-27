@@ -3,7 +3,9 @@ package com.adingxiong.poiutils.test;
 
 
 import com.adingxiong.poiutils.code.ExcelExport;
+import com.adingxiong.poiutils.code.ExcelImport;
 import com.adingxiong.poiutils.constant.Constants;
+import com.adingxiong.poiutils.util.ExcelUtil;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -24,8 +26,9 @@ public class UtilTest {
 
 
     public static void main(String[] args) throws IOException {
-        commonExport();
-        testCostomers();
+        /*commonExport();
+        testCostomers();*/
+        testImport();
     }
 
     /**
@@ -95,6 +98,17 @@ public class UtilTest {
         out.close();
     }
 
+
+    private static void testImport() throws IOException {
+        String fileUrl = "C:\\Users\\Administrator\\Desktop\\测试导出.xlsx";
+        Workbook workbook = ExcelUtil.readExcel(fileUrl, ProjectVo.class);
+        Sheet sheet = workbook.getSheet("sheet");
+        List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("rows").isFormatTitle(true).setFieldError("error").transformation(sheet ,ProjectVo.class);
+        list.stream().forEach(e ->{
+            System.out.println(e.toString());
+        });
+
+    }
 
 
 }

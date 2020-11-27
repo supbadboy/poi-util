@@ -34,4 +34,8 @@ public class ProjectVo {
 
     @FieldName(value = "记录日期",dateFormat = "yyyy-MM-dd")
     private Date date;
+
+    private String error;
+
+    private Integer rows;
 }
