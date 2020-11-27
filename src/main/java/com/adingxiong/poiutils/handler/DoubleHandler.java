@@ -24,7 +24,7 @@ public class DoubleHandler extends AbstractFieldParsHandler {
         String db = ExcelUtil.getCellValue(cell);
         if(!StringUtils.isEmpty(db)){
             if(!Pattern.matches(ISDOUBLE , db)){
-                errorMsg.append(fieldName.value()).append(PARAM_TYPE_ERROR);
+                errorMsg.append(fieldName.value()).append("<").append(db).append(">").append(PARAM_TYPE_ERROR);
             }else {
                 try {
                     filed.set(paramT ,Double.valueOf(db));

@@ -26,7 +26,7 @@ public class ProjectVo {
     @FieldName(value = "金额")
     private Double money;
 
-    @FieldName(value = "负责人")
+    @FieldName(value = "负责人" ,required = true)
     private String processPeople;
 
     @FieldName(value = "周期")

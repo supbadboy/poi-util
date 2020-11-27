@@ -24,13 +24,13 @@ public class Errorcons {
 
     public static final String EXCEL_TITLE_EMPTY ="excel标题行没有内容";
 
-    public static final String PARAM_TYPE_ERROR = "参数格式错误";
+    public static final String PARAM_TYPE_ERROR = "参数格式错误,";
 
-    public static final String TIME_TYPE ="时间格式错误";
+    public static final String TIME_TYPE ="时间格式错误,";
 
-    public static final String NOT_EMPTY ="不能为空";
+    public static final String NOT_EMPTY ="不能为空,";
 
-    public static final String SET_ERROR = "属性值设置失败";
+    public static final String SET_ERROR = "属性值设置失败,";
 
     public static final String INSTANCE_ERROR ="输入流不能为空";
 

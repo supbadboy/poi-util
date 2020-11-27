@@ -23,7 +23,7 @@ public class IntegerHandler extends AbstractFieldParsHandler {
         String val = ExcelUtil.getCellValue(cell);
         if(!StringUtils.isEmpty(val)){
             if(!Pattern.matches(ISNUM , val)){
-                errorMsg.append(fieldName.value()).append(Errorcons.PARAM_TYPE_ERROR);
+                errorMsg.append(fieldName.value()).append("<").append(val).append(">").append(Errorcons.PARAM_TYPE_ERROR);
             }else{
                 try {
                     filed.set(paramT,Integer.parseInt(val));

@@ -103,7 +103,7 @@ public class UtilTest {
         String fileUrl = "C:\\Users\\Administrator\\Desktop\\测试导出.xlsx";
         Workbook workbook = ExcelUtil.readExcel(fileUrl, ProjectVo.class);
         Sheet sheet = workbook.getSheet("sheet");
-        List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("rows").isFormatTitle(true).setFieldError("error").transformation(sheet ,ProjectVo.class);
+        List <ProjectVo> list = ExcelImport.getInstance().setRowNum(0).setFieldRows("rows").isFormatTitle(true).setFieldError("error").transformation(sheet ,ProjectVo.class);
         list.stream().forEach(e ->{
             System.out.println(e.toString());
         });

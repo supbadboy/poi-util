@@ -10,7 +10,7 @@
 | Excel导出      |  |  |
 |    |  通用导出`fillCustomer`  |  2020年11月27日11:33:35  |
 |   |定制导出  `fillCommon`  |    2020年11月27日11:33:35 |
-|Excel 导入  |    |  开发中    |
+|Excel 导入  |    |  2020年11月27日17:16:47    |
 |   Excel转HTML    |       | 开发中      |
 |  WORD模版导出     |       |    开发中   |
 |  Excel 模版导出     |       |  未开发     |
@@ -124,3 +124,41 @@ public class ProjectVo {
 ![](docs/Snipaste_2020-11-27_13-30-18.png)
 
 ![](docs/Snipaste_2020-11-27_13-30-30.png)
+
+
+
+#### 3.3  `Excel`导出功能
+
+导入功能还是基于注解部分，会去查找你实体类@Field注解值和Excel表头对应的上的字段，然后将数值对实体类进行数据填充 
+
+实体类注解可以参考导入
+
+方法调用入口`ExcelImport.getInstance().transformation()` ,参数说明 
+```java
+/**
+     * 标题所在行号 默认为 0
+     */
+    private Integer rowNum = Integer.valueOf(0);
+
+    /**
+     * 是否格式话标题  去掉 空格  换行符
+     */
+    private Boolean formatTitle = Boolean.valueOf(true);
+
+    /**
+     * 指定存放错误日志的字段名
+     */
+    private String fieldError =  null ;
+
+    /**
+     * 指定记录表格行数的字段名
+     */
+    private String fieldRows =  null;
+```
+可以每个参数都有默认值，不设置即认为是默认。可以通过链式操作来设置各个属性值 
+```java
+List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("rows").isFormatTitle(true).setFieldError("error").transformation(sheet ,ProjectVo.class);
+```
+
+导出效果如下所示 
+![](docs/Snipaste_2020-11-27_17-30-16.png)

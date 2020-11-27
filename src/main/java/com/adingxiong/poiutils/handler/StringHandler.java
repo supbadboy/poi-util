@@ -1,6 +1,7 @@
 package com.adingxiong.poiutils.handler;
 
 import com.adingxiong.poiutils.constant.Constants;
+import com.adingxiong.poiutils.constant.Errorcons;
 import com.adingxiong.poiutils.interfaces.FieldName;
 import com.adingxiong.poiutils.util.ExcelUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -26,12 +27,12 @@ public class StringHandler extends AbstractFieldParsHandler {
                     try {
                         str = super.getDateFormat(fieldName.dateFormat()).format(Constants.simpleDateFormat.parse(str));
                     } catch (ParseException e) {
-                        errorMsg.append(fieldName.value()).append("时间格式错误,");
+                        errorMsg.append(fieldName.value()).append("<").append(str).append(">").append(Errorcons.TIME_TYPE);
                     }
                 }
                 filed.set(paramT, str);
             } catch (IllegalAccessException e) {
-                errorMsg.append(fieldName.value()).append("属性值设置失败,");
+                errorMsg.append(fieldName.value()).append(Errorcons.SET_ERROR);
             }
         }
         if ((fieldName.required()) && (StringUtils.isBlank(str))){
