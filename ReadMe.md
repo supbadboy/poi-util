@@ -66,7 +66,7 @@ public class ProjectVo {
  
  ##### 3.1  通用导出`Excel`
  调用方法 
-```
+```java
     
     Workbook wb = new XSSFWorkbook();
     //模拟数据
@@ -84,7 +84,7 @@ public class ProjectVo {
 ![](docs/Snipaste_2020-11-27_13-32-12.png)
 
 ##### 3.2 定制导出`Excel`
-```
+```java
     //定制excel
     Workbook wb = new XSSFWorkbook();
     Sheet sheet = wb.createSheet("定制表头导出");
