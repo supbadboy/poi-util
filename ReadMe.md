@@ -19,7 +19,7 @@
 |       |       |       |
 
 #### 1. 结构说明
-![](docs/Snipaste_2020-11-27_11-36-54.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_11-36-54.png)
 
 #### 2. 使用说明 
 
@@ -83,7 +83,7 @@ public class ProjectVo {
 
 效果如下 
 
-![](docs/Snipaste_2020-11-27_13-32-12.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_13-32-12.png)
 
  ##### 3.2 定制导出`Excel`
 ```java
@@ -123,13 +123,13 @@ public class ProjectVo {
 ```
 
 效果如下所示 
-![](docs/Snipaste_2020-11-27_13-30-18.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_13-30-18.png)
 
-![](docs/Snipaste_2020-11-27_13-30-30.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_13-30-30.png)
 
 
 
- ##### 3.3  `Excel`导出功能
+ ##### 3.3  `Excel`导入功能
 
 导入功能还是基于注解部分，会去查找你实体类@Field注解值和Excel表头对应的上的字段，然后将数值对实体类进行数据填充 
 
@@ -163,7 +163,7 @@ List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("row
 ```
 
 导出效果如下所示 
-![](docs/Snipaste_2020-11-27_17-30-16.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_17-30-16.png)
 
  ##### 3.4  `WORD`模板导出文件  (目前仅支持docx文档  不兼容07版本以下)
  +  支持图片(`http`路径图片资源)
@@ -181,11 +181,11 @@ List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("row
  
  
  **模版文件示例**
- ![](./docs/Snipaste_2020-12-02_11-28-54.png)
+ ![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-12-02_11-28-54.png)
  
  **数据写入效果**
- ![](./docs/Snipaste_2020-12-02_11-29-41.png)
+ ![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-12-02_11-29-41.png)
  
  
 **代码调用**
-![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_11-36-54.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-12-02_11-31-19.png)
