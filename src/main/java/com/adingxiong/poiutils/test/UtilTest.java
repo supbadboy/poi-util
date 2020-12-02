@@ -4,8 +4,11 @@ package com.adingxiong.poiutils.test;
 
 import com.adingxiong.poiutils.code.ExcelExport;
 import com.adingxiong.poiutils.code.ExcelImport;
+import com.adingxiong.poiutils.code.WordExport;
 import com.adingxiong.poiutils.constant.Constants;
 import com.adingxiong.poiutils.util.ExcelUtil;
+import lombok.Builder;
+import lombok.Data;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -14,7 +17,10 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.*;
+
+import static com.adingxiong.poiutils.util.ExcelUtil.getUrl;
 
 /**
  * @ClassName UtilTest
@@ -28,7 +34,8 @@ public class UtilTest {
     public static void main(String[] args) throws IOException {
         /*commonExport();
         testCostomers();*/
-        testImport();
+        //testImport();
+        testWordExport();
     }
 
     /**
@@ -103,7 +110,12 @@ public class UtilTest {
         String fileUrl = "C:\\Users\\Administrator\\Desktop\\测试导出.xlsx";
         Workbook workbook = ExcelUtil.readExcel(fileUrl, ProjectVo.class);
         Sheet sheet = workbook.getSheet("sheet");
-        List <ProjectVo> list = ExcelImport.getInstance().setRowNum(0).setFieldRows("rows").isFormatTitle(true).setFieldError("error").transformation(sheet ,ProjectVo.class);
+        List <ProjectVo> list = ExcelImport.getInstance()
+                .setRowNum(0)
+                .setFieldRows("rows")
+                .isFormatTitle(true)
+                .setFieldError("error")
+                .transformation(sheet ,ProjectVo.class);
         list.stream().forEach(e ->{
             System.out.println(e.toString());
         });
@@ -111,4 +123,53 @@ public class UtilTest {
     }
 
 
+    private static void testWordExport() {
+        File template = new File("C:\\Users\\Administrator\\Desktop\\repair_report.docx");
+        InputStream btImg = getUrl("http://192.168.2.126/group1/M00/45/79/wKgCfl8PrUyAMNXUAAErNrq-Q9c236.jpg");
+        Map<String,Object> resMap = new HashMap<>();
+        resMap.put("username" , "测试word模版导出");
+        resMap.put("nickname", "昵称");
+        resMap.put("date", Constants.simpleDateFormat.format(new Date()));
+        resMap.put("email" ,"1374543195@qq.com");
+        resMap.put("note","七大爷八大姑子稀里糊涂叽里呱啦");
+        try {
+            resMap.put("img" ,btImg);
+            FileInputStream fileInputStream = new FileInputStream(template);
+            List<UserInfo> list = new ArrayList<>();
+            list.add(UserInfo.builder()
+                    .name("王中华")
+                    .age("25")
+                    .phone("15071384121")
+                    .email("1119624186@qq.com")
+                    .job("高级软件开发工程师")
+                    .build()
+            );
+            list.add(UserInfo.builder()
+                    .name("四匹马")
+                    .age("25")
+                    .phone("15071384121")
+                    .email("1119624186@qq.com")
+                    .job("ui不错哦")
+                    .build());
+            resMap.put("list",list);
+
+            Path path = WordExport.getInstance().convertWord(fileInputStream ,resMap ,"模版文件到处.docx" );
+            System.out.println(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+    @Data
+    @Builder
+     private static class UserInfo {
+        private String name;
+        private String age ;
+        private String phone;
+        private String email;
+        private String job;
+
+
+    }
 }

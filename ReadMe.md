@@ -12,7 +12,9 @@
 |   |定制导出  `fillCommon`  |    2020年11月27日11:33:35 |
 |Excel 导入  |    |  2020年11月27日17:16:47    |
 |   Excel转HTML    |       | 开发中      |
-|  WORD模版导出     |       |    开发中   |
+|  WORD模版导出 （convertWord）    |       |    2020年12月2日11:17:49   |
+|     |  自动全局调整格式位水平排列     |    2020年12月2日11:17:49   |
+|       |  默认按照模板文件样式      |    2020年12月2日11:17:49   |
 |  Excel 模版导出     |       |  未开发     |
 |       |       |       |
 
@@ -162,3 +164,28 @@ List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("row
 
 导出效果如下所示 
 ![](docs/Snipaste_2020-11-27_17-30-16.png)
+
+ ##### 3.4  `WORD`模板导出文件  (目前仅支持docx文档  不兼容07版本以下)
+ +  支持图片(`http`路径图片资源)
+ +  支持多个格式的文本内容
+ +  支持纯文本内容  
+ +  支持文本 +  列表模式
+ 
+ 方法调用入口   `WordExport.getInstance().convertWord(in , resMap , fileName , isDefaultSyle)`
+ 
+ 参数说明  
+ + `in` 文件直接输入流 ,读取模版文件并转换成`FileInputStream` 
+ +` resMap` 需要填充`word`文档的数据,`k-v`形式, `k`必须对应这个模版中的`${}`中的标识
+ + `fileName` 导出文件的名称
+ + `isDefaultSyle` 是否使用水平样式 这个参数非必要,不传为默认模版样式
+ 
+ 
+ **模版文件示例**
+ ![](docs/Snipaste_2020-12-02_11-28-54.png)
+ 
+ **数据写入效果**
+ ![](docs/Snipaste_2020-12-02_11-29-41.png)
+ 
+ 
+**代码调用**
+![](docs/Snipaste_2020-12-02_11-31-19.png)

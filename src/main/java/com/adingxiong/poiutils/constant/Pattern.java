@@ -8,7 +8,7 @@ package com.adingxiong.poiutils.constant;
  **/
 public class Pattern {
 
-    public static final String ISDOUBLE= "^(\\\\-)?\\\\d+(\\\\.\\\\d{1,4})?$";
+    public static final String ISDOUBLE= "^(\\-)?\\d+(\\.\\d{1,4})?$";
 
     public static final String ISNUM = "^[0-9]*$";
 }
