@@ -188,4 +188,4 @@ List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("row
  
  
 **代码调用**
-![](./docs/Snipaste_2020-12-02_11-31-19.png)
+![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_11-36-54.png)
