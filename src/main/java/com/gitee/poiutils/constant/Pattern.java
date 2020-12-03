@@ -1,10 +1,10 @@
-package com.adingxiong.poiutils.constant;
+package com.gitee.poiutils.constant;
 
 /**
- * @ClassName Pattern
- * @Description TODO
- * @Author xiongchao
- * @Date 2020/11/27 15:38
+ * ClassName Pattern
+ * Description TODO
+ * @author xiongchao
+ * Date 2020/11/27 15:38
  **/
 public class Pattern {
 

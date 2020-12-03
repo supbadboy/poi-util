@@ -1,12 +1,13 @@
-package com.adingxiong.poiutils.test;
+package com.gitee.poiutils.test;
 
 
 
-import com.adingxiong.poiutils.code.ExcelExport;
-import com.adingxiong.poiutils.code.ExcelImport;
-import com.adingxiong.poiutils.code.WordExport;
-import com.adingxiong.poiutils.constant.Constants;
-import com.adingxiong.poiutils.util.ExcelUtil;
+import com.gitee.poiutils.code.ExcelExport;
+import com.gitee.poiutils.code.ExcelImport;
+import com.gitee.poiutils.code.WordExport;
+import com.gitee.poiutils.constant.Constants;
+import com.gitee.poiutils.util.ExcelUtil;
+import com.gitee.poiutils.util.ClassUtils;
 import lombok.Builder;
 import lombok.Data;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -20,13 +21,11 @@ import java.io.*;
 import java.nio.file.Path;
 import java.util.*;
 
-import static com.adingxiong.poiutils.util.ExcelUtil.getUrl;
-
 /**
- * @ClassName UtilTest
- * @Description TODO
- * @Author xiongchao
- * @Date 2020/11/26 13:50
+ * ClassName UtilTest
+ * Description TODO
+ * @author xiongchao
+ * Date 2020/11/26 13:50
  **/
 public class UtilTest {
 
@@ -80,7 +79,7 @@ public class UtilTest {
         Font font = wb.createFont();
         List<ProjectVo> list = mockData();
 
-        Map<String, List> declaredFieldsInfo = com.adingxiong.poiutils.util.ClassUtils.getDeclaredFieldsInfo(list.get(0));
+        Map<String, List> declaredFieldsInfo = ClassUtils.getDeclaredFieldsInfo(list.get(0));
         int size = declaredFieldsInfo.get(Constants.HEAD).size();
         sheet.addMergedRegion(new CellRangeAddress(0,0,0,size -1 ));
         //主体部分
@@ -125,7 +124,7 @@ public class UtilTest {
 
     private static void testWordExport() {
         File template = new File("C:\\Users\\Administrator\\Desktop\\repair_report.docx");
-        InputStream btImg = getUrl("http://192.168.2.126/group1/M00/45/79/wKgCfl8PrUyAMNXUAAErNrq-Q9c236.jpg");
+        InputStream btImg = ExcelUtil.getUrl("http://192.168.2.126/group1/M00/45/79/wKgCfl8PrUyAMNXUAAErNrq-Q9c236.jpg");
         Map<String,Object> resMap = new HashMap<>();
         resMap.put("username" , "测试word模版导出");
         resMap.put("nickname", "昵称");

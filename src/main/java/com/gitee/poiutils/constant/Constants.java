@@ -1,13 +1,13 @@
-package com.adingxiong.poiutils.constant;
+package com.gitee.poiutils.constant;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
 /**
- * @ClassName Map
- * @Description 存储魔法值
- * @Author xiongchao
- * @Date 2020/11/26 17:18
+ * ClassName Map
+ * Description 存储魔法值
+ * @author xiongchao
+ * Date 2020/11/26 17:18
  **/
 public class Constants {
 

@@ -1,4 +1,4 @@
-package com.adingxiong.poiutils.util;
+package com.gitee.poiutils.util;
 
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -11,13 +11,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @ClassName CellUtils
- * @Description  单元格操作的工具类
+ * ClassName CellUtils
+ * Description  单元格操作的工具类
  *
  *         TODO  : 需要优化的地方 这里需要考虑的是  在创建单元格的时候,设置每个单元格的样式,存在多次创建CellStyle 对象
  *          和 Font 对象  ,后期要根据数据量来考虑是否将创建对象改为clone (复杂的对象 clone效率更高,但是性能还没分析
- * @Author xiongchao
- * @Date 2020/11/27 9:46
+ * @author xiongchao
+ * Date 2020/11/27 9:46
  **/
 public class CellUtils {
 
@@ -49,8 +49,8 @@ public class CellUtils {
 
     /**
      * 创建单元格标题样式
-     * @param workbook
-     * @return
+     * @param workbook 工作薄
+     * @return 返回单元格样式对象
      */
     public static CellStyle createCellTitleStyle(Workbook workbook) {
         CellStyle style = workbook.createCellStyle();

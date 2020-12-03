@@ -1,11 +1,11 @@
-package com.adingxiong.poiutils.code;
+package com.gitee.poiutils.code;
 
 
-import com.adingxiong.poiutils.constant.Constants;
-import com.adingxiong.poiutils.constant.Errorcons;
-import com.adingxiong.poiutils.handler.FieldParsHandler;
-import com.adingxiong.poiutils.interfaces.FieldName;
-import com.adingxiong.poiutils.util.ExcelUtil;
+import com.gitee.poiutils.constant.Constants;
+import com.gitee.poiutils.constant.Errorcons;
+import com.gitee.poiutils.handler.FieldParsHandler;
+import com.gitee.poiutils.interfaces.FieldName;
+import com.gitee.poiutils.util.ExcelUtil;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.adingxiong.poiutils.constant.Errorcons.*;
+import static com.gitee.poiutils.constant.Errorcons.*;
 
 /**
- * @ClassName ExcelImport
- * @Description   Excel导出
- * @Author xiongchao
- * @Date 2020/11/26 11:04
+ * ClassName ExcelImport
+ * Description   Excel导出
+ * @author xiongchao
+ * Date 2020/11/26 11:04
  **/
 public class ExcelImport {
 
@@ -114,7 +114,7 @@ public class ExcelImport {
                             if(FieldParsHandler.handles.containsKey(fileType + Constants.HEAD_SUFFIX)){
                                 fieldParsHandler = FieldParsHandler.handles.get(fileType + Constants.HEAD_SUFFIX);
                             }else {
-                                Class handler = Class.forName("com.adingxiong.poiutils.handler." + fileType + Constants.HEAD_SUFFIX);
+                                Class handler = Class.forName("com.gitee.poiutils.handler." + fileType + Constants.HEAD_SUFFIX);
                                 fieldParsHandler = (FieldParsHandler) handler.newInstance();
                                 FieldParsHandler.handles.put(fileType + Constants.HEAD_SUFFIX , fieldParsHandler);
                             }

@@ -1,6 +1,7 @@
-package com.adingxiong.poiutils.util;
+package com.gitee.poiutils.util;
 
-import com.adingxiong.poiutils.interfaces.FieldName;
+import com.gitee.poiutils.interfaces.FieldName;
+import com.gitee.poiutils.constant.Constants;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -21,13 +22,11 @@ import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.adingxiong.poiutils.constant.Constants.simpleDateFormat;
-
 /**
- * @ClassName ExcelUtil
- * @Description TODO
- * @Author xiongchao
- * @Date 2020/11/27 14:46
+ * ClassName ExcelUtil
+ * Description TODO
+ * @author xiongchao
+ * Date 2020/11/27 14:46
  **/
 public class ExcelUtil {
     public static final NumberFormat numberFormat = NumberFormat.getInstance();
@@ -74,7 +73,7 @@ public class ExcelUtil {
         switch (cell.getCellType()) {
             case 0:
                 if (DateUtil.isCellDateFormatted(cell)) {
-                    value = simpleDateFormat.format(HSSFDateUtil.getJavaDate(cell.getNumericCellValue()));
+                    value = Constants.simpleDateFormat.format(HSSFDateUtil.getJavaDate(cell.getNumericCellValue()));
                 }else {
                     value = numberFormat.format(cell.getNumericCellValue());
                 }

@@ -1,12 +1,12 @@
-package com.adingxiong.poiutils.constant;
+package com.gitee.poiutils.constant;
 
 import javax.swing.*;
 
 /**
- * @ClassName Errorcons
- * @Description  魔法值提取
- * @Author xiongchao
- * @Date 2020/11/27 10:01
+ * ClassName Errorcons
+ * Description  魔法值提取
+ * @author xiongchao
+ * Date 2020/11/27 10:01
  **/
 public class Errorcons {
 

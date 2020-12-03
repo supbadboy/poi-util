@@ -1,8 +1,8 @@
-package com.adingxiong.poiutils.util;
+package com.gitee.poiutils.util;
 
 
-import com.adingxiong.poiutils.constant.Constants;
-import com.adingxiong.poiutils.interfaces.FieldName;
+import com.gitee.poiutils.constant.Constants;
+import com.gitee.poiutils.interfaces.FieldName;
 import org.springframework.util.Assert;
 
 import java.lang.reflect.Field;
@@ -12,17 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @ClassName ExcelUtil
- * @Description   操作实体类的工具  用于读取指定注解的实体类的注解内容和 注解列名
- * @Author xiongchao
- * @Date 2020/11/26 13:55
+ * ClassName ExcelUtil
+ * Description   操作实体类的工具  用于读取指定注解的实体类的注解内容和 注解列名
+ * @author xiongchao
+ * Date 2020/11/26 13:55
  **/
 public class ClassUtils {
 
     /**
      * 获取实体类  有指定注解的 类名和注解名
-     * @param instance
-     * @return
+     * @param  instance  需要获取的对象
+     * @return 返回对象字段和注释信息
      */
     public static Map<String,List> getDeclaredFieldsInfo(Object instance){
         Map<String,List> map = new HashMap<>();

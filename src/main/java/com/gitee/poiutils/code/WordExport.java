@@ -1,6 +1,6 @@
-package com.adingxiong.poiutils.code;
+package com.gitee.poiutils.code;
 
-import com.adingxiong.poiutils.constant.Errorcons;
+import com.gitee.poiutils.constant.Errorcons;
 import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPageSz;
@@ -23,10 +23,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @ClassName WordExport
- * @Description TODO
- * @Author xiongchao
- * @Date 2020/12/1 10:20
+ * ClassName WordExport
+ * Description TODO
+ * @author xiongchao
+ * Date 2020/12/1 10:20
  **/
 public class WordExport {
 
@@ -106,8 +106,8 @@ public class WordExport {
 
     /**
      *  获取list文件 并渲染到页面
-     * @param doc
-     * @param params
+     * @param doc 文档对象
+     * @param params 填充的数据集合
      * @param horizontal  是否自动调整格式
      * @throws Exception
      */

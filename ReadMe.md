@@ -3,6 +3,15 @@
 ### 迭代记录  
 + 2020年11月27日11:33:35 完成Excel导出的部分
 
+### maven 坐标  
+```xml
+<dependency>
+    <groupId>com.gitee.bodboy</groupId>
+    <artifactId>poi-utils</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
 
 ### 工具包说明 
 | 继承工具类        |            | 完结时间  |
@@ -94,7 +103,7 @@ public class ProjectVo {
     Font font = wb.createFont();
     List<ProjectVo> list = mockData();
 
-    Map<String, List> declaredFieldsInfo = com.adingxiong.poiutils.util.ClassUtils.getDeclaredFieldsInfo(list.get(0));
+    Map<String, List> declaredFieldsInfo = ClassUtils.getDeclaredFieldsInfo(list.get(0));
     int size = declaredFieldsInfo.get(Constants.HEAD).size();
     sheet.addMergedRegion(new CellRangeAddress(0,0,0,size -1 ));
     //主体部分

@@ -1,15 +1,15 @@
-package com.adingxiong.poiutils.test;
+package com.gitee.poiutils.test;
 
-import com.adingxiong.poiutils.interfaces.FieldName;
+import com.gitee.poiutils.interfaces.FieldName;
 import lombok.Data;
 
 import java.util.Date;
 
 /**
- * @ClassName ProjectVo
- * @Description TODO
- * @Author xiongchao
- * @Date 2020/11/26 15:48
+ * ClassName ProjectVo
+ * Description TODO
+ * @author xiongchao
+ * Date 2020/11/26 15:48
  **/
 @Data
 public class ProjectVo {

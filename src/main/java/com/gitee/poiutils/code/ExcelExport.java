@@ -1,9 +1,9 @@
-package com.adingxiong.poiutils.code;
+package com.gitee.poiutils.code;
 
-import com.adingxiong.poiutils.constant.Constants;
-import com.adingxiong.poiutils.constant.Errorcons;
-import com.adingxiong.poiutils.util.CellUtils;
-import com.adingxiong.poiutils.util.ClassUtils;
+import com.gitee.poiutils.constant.Constants;
+import com.gitee.poiutils.constant.Errorcons;
+import com.gitee.poiutils.util.CellUtils;
+import com.gitee.poiutils.util.ClassUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.springframework.util.CollectionUtils;
@@ -15,10 +15,10 @@ import java.time.Instant;
 import java.util.*;
 
 /**
- * @ClassName ExcelExport
- * @Description TODO
- * @Author xiongchao
- * @Date 2020/11/26 11:04
+ * ClassName ExcelExport
+ * Description excel 通用导出模块
+ * @author xiongchao
+ * Date 2020/11/26 11:04
  **/
 public class ExcelExport {
 
@@ -53,10 +53,10 @@ public class ExcelExport {
 
     /**
      *  通用导入   默认标题字体加粗 字体居中  带有单元格边框线
-     * @param wb
-     * @param list
+     * @param wb  wb对象
+     * @param list 需要填充的集合数据
      * @param sheetName   sheet名称
-     * @param <T>
+     * @param <T> 泛型
      */
     public synchronized <T>  void fillCommon (Workbook wb , List<T>list ,String sheetName){
         if(wb == null) {
@@ -131,9 +131,9 @@ public class ExcelExport {
 
     /**
      *  创建单元格
-     * @param row
-     * @param index
-     * @param value
+     * @param row  行
+     * @param index 索引
+     * @param value 填充的值
      */
     private void createCell(Row row ,Integer index ,String value ,CellStyle style){
         Cell cell = row.getCell(index);
@@ -171,7 +171,7 @@ public class ExcelExport {
      * @param font  字体对象
      * @param cellStyle   单元格样式
      * @param list  需要导入的数据集合
-     * @param <T>
+     * @param <T> 泛型
      */
     public synchronized <T> void fillCustomer(Sheet sheet , int skipRow , Font font , CellStyle cellStyle , List<?> list){
         if(CollectionUtils.isEmpty(list)){
