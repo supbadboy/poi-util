@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Cell;
 
 import java.lang.reflect.Field;
 import java.text.ParseException;
+import java.util.regex.Pattern;
 
 /**
  * ClassName StringHandler
@@ -28,6 +29,13 @@ public class StringHandler extends AbstractFieldParsHandler {
                         str = super.getDateFormat(fieldName.dateFormat()).format(Constants.simpleDateFormat.parse(str));
                     } catch (ParseException e) {
                         errorMsg.append(fieldName.value()).append("<").append(str).append(">").append(Errorcons.TIME_TYPE);
+                    }
+                }
+
+                if (StringUtils.isNotEmpty(fieldName.pattern())){
+                    String patter = fieldName.pattern();
+                    if(!Pattern.matches(patter,str)){
+                        errorMsg.append(fieldName.value()).append("<").append(str).append(">").append(Errorcons.PARAM_TYPE_ERROR);
                     }
                 }
                 filed.set(paramT, str);

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.gitee.bodboy</groupId>
     <artifactId>poi-utils</artifactId>
-    <version>0.0.3-Release</version>
+    <version>0.0.2-Release</version>
     <name>poi-utils</name>
     <packaging>jar</packaging>
     <description>
-        this is a util jar about operation excel,word. You can use the encapsulated method to generate Word or Excel on your own
+            this is a util jar about operation excel,word. You can use the encapsulated method to generate Word or Excel on your own
     </description>
     <url>https://gitee.com/bodboy/poi-util</url>
 
@@ -20,7 +21,7 @@
         </license>
     </licenses>
     <scm>
-        <tag>poi-utils-0.0.1</tag>
+        <tag>master</tag>
         <url>git@gitee.com:bodboy/poi-util.git</url>
         <connection>scm:git:git@gitee.com:bodboy/poi-util.git</connection>
         <developerConnection>scm:git:git@gitee.com:bodboy/poi-util.git</developerConnection>

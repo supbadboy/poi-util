@@ -18,4 +18,8 @@ public @interface FieldName {
     String dateFormat() default "";
 
     boolean required() default false;
+    /*
+     正则限制
+     */
+    String pattern() default "";
 }

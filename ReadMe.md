@@ -2,13 +2,15 @@
 
 ### 迭代记录  
 + 2020年11月27日11:33:35 完成Excel导出的部分
++ 2021年3月10日16:38:21 0.0.3版本发布
+    + Excel导入部分 新增正则检验，可通过注解的方式配置字段的正则表达式
 
 ### maven 坐标  
 ```xml
 <dependency>
     <groupId>com.gitee.bodboy</groupId>
     <artifactId>poi-utils</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -48,7 +50,7 @@ public class ProjectVo {
     @FieldName(value = "项目")
     private String name;
 
-    @FieldName(value = "电话")
+    @FieldName(value = "电话" ,pattern = "/^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\\d{8}$/")
     private String phone;
 
     private String person;
@@ -166,6 +168,40 @@ public class ProjectVo {
      */
     private String fieldRows =  null;
 ```
+导出的数据的实体列, 相关注解说明，@required 是否为必填，根据字段类型进行数据格式校验，@dateFormat格式校验
+```java
+@Data
+public class ProjectVo {
+
+    @FieldName(value = "项目")
+    private String name;
+
+    @FieldName(value = "电话")
+    private String phone;
+
+    @FieldName(value = "联系人")
+    private String person;
+
+    @FieldName(value = "金额")
+    private Double money;
+
+    @FieldName(value = "负责人" ,required = true)
+    private String processPeople;
+
+    @FieldName(value = "周期")
+    private String cycle;
+
+    @FieldName(value = "记录日期",dateFormat = "yyyy-MM-dd")
+    private Date date;
+
+    private String error;
+
+    private Integer rows;
+}
+
+
+```
+
 可以每个参数都有默认值，不设置即认为是默认。可以通过链式操作来设置各个属性值 
 ```java
 List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("rows").isFormatTitle(true).setFieldError("error").transformation(sheet ,ProjectVo.class);
@@ -198,3 +234,6 @@ List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("row
  
 **代码调用**
 ![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-12-02_11-31-19.png)
+
+
+发布指令 mvn clean deploy -P <release>
