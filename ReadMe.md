@@ -5,6 +5,8 @@
 + 2021年3月10日16:38:21 0.0.3版本发布
     + Excel导入部分 新增正则检验，可通过注解的方式配置字段的正则表达式
 
++ 2021年3月11日14:15:26 0.0.4 版本发布 
+    + Excel转h5功能，实现Excel在线预览
 ### maven 坐标  
 ```xml
 <dependency>
@@ -16,18 +18,18 @@
 
 
 ### 工具包说明 
+
 | 继承工具类        |            | 完结时间  |
 | ------------- |:-------------:| -----:|
 | Excel导出      |  |  |
 |    |  通用导出`fillCustomer`  |  2020年11月27日11:33:35  |
 |   |定制导出  `fillCommon`  |    2020年11月27日11:33:35 |
-|Excel 导入  |    |  2020年11月27日17:16:47    |
-|   Excel转HTML    |       | 开发中      |
-|  WORD模版导出 （convertWord）    |       |    2020年12月2日11:17:49   |
+|Excel 导入  | `transformation` 自动校验  |  2020年11月27日17:16:47    |
+|   Excel转HTML    |  `excelToH5`支持固定表头     | 2021年3月11日14:16:21      |
+|  WORD模版导出     |   `convertWord`    |    2020年12月2日11:17:49   |
 |     |  自动全局调整格式位水平排列     |    2020年12月2日11:17:49   |
 |       |  默认按照模板文件样式      |    2020年12月2日11:17:49   |
 |  Excel 模版导出     |       |  未开发     |
-|       |       |       |
 
 #### 1. 结构说明
 ![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-11-27_11-36-54.png)
@@ -235,5 +237,31 @@ List <ProjectVo> list = ExcelImport.getInstance().setRowNum(5).setFieldRows("row
 **代码调用**
 ![](https://gitee.com/bodboy/poi-util/raw/master/docs/Snipaste_2020-12-02_11-31-19.png)
 
+
+##### 3.5 `Excel`转`Html`
++ 支持源文件格式 
++ 支持自定义固定行数
++ 灵活调用
+  + 可以是文件路径 
+  + 可以是`excel Wookbook`对象
+  
+**调用案例**
+```java
+private static void testToH5() throws IOException {
+  String path = "C:\\Users\\Administrator\\Desktop\\测试导出.xlsx";
+  Workbook workbook = ExcelTools.readExcel(path);
+  // String s = ExcelToHtml.getInstance().excelToH5(path, null, true,1);
+  String s = ExcelToHtml.getInstance().excelToH5(null, workbook, true,1);
+  System.out.println(s);
+}
+```
+
+**控制台输出**
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a45a332be6b1488b85585e30ae80abfd~tplv-k3u1fbpfcp-watermark.image)
+**页面预览**
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/414fb66b3e2444f59b52fe11bc945a61~tplv-k3u1fbpfcp-watermark.image)
+
+
+----------
 
 发布指令 mvn clean deploy -P <release>

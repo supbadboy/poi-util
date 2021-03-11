@@ -4,8 +4,10 @@ package com.gitee.poiutils.test;
 
 import com.gitee.poiutils.code.ExcelExport;
 import com.gitee.poiutils.code.ExcelImport;
+import com.gitee.poiutils.code.ExcelToHtml;
 import com.gitee.poiutils.code.WordExport;
 import com.gitee.poiutils.constant.Constants;
+import com.gitee.poiutils.util.ExcelTools;
 import com.gitee.poiutils.util.ExcelUtil;
 import com.gitee.poiutils.util.ClassUtils;
 import lombok.Builder;
@@ -33,8 +35,12 @@ public class UtilTest {
     public static void main(String[] args) throws IOException {
         //commonExport();
         //testCostomers();
-        testImport();
-       // testImport();
+        //testImport();
+        //testImport();
+        //testWordExport();
+
+
+      testToH5();
     }
 
     /**
@@ -61,7 +67,7 @@ public class UtilTest {
             e.setMoney(5000.00 + i);
             e.setPerson("张三" + i);
             e.setPhone("15071385455");
-            e.setProcessPeople("你是真的批");
+            e.setProcessPeople("你是真的皮");
             vo.add(e);
         }
         return vo;
@@ -121,6 +127,14 @@ public class UtilTest {
 
     }
 
+    private static void testToH5() throws IOException {
+        String path = "C:\\Users\\Administrator\\Desktop\\测试导出.xlsx";
+        Workbook workbook = ExcelTools.readExcel(path);
+        // String s = ExcelToHtml.getInstance().excelToH5(path, null, true,1);
+        String s = ExcelToHtml.getInstance().excelToH5(null, workbook, true,1);
+        System.out.println(s);
+    }
+
 
     private static void testWordExport() {
         File template = new File("C:\\Users\\Administrator\\Desktop\\repair_report.docx");
@@ -168,7 +182,5 @@ public class UtilTest {
         private String phone;
         private String email;
         private String job;
-
-
     }
 }
